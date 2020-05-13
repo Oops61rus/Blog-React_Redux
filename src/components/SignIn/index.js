@@ -12,13 +12,13 @@ class SignIn extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(
-      "Your email: " +
-        this.state.email +
-        " " +
-        "Your password: " +
-        this.state.password
-    );
+    // console.log(
+    //   "Your email: " +
+    //     this.state.email +
+    //     " " +
+    //     "Your password: " +
+    //     this.state.password
+    // );
     this.props.signIn({ ...this.state }); // здесь пробросить данные из инпутов?
   };
 

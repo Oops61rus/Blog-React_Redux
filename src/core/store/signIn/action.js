@@ -3,17 +3,13 @@ import axios from "axios";
 
 export const AUTH_USER = "AUTH_USER";
 
-export default function signIn(props) {
+export default function signIn(data) {
   return async (dispatch) => {
-    console.log(props)
+    console.log(data)
     try {
       dispatch(showLoader());
-      const response = await axios.post("/api/v1/signIn", {
-        // props.email,
-        // props.password,
-      });
-      const json = await response.json();
-      dispatch({ type: AUTH_USER, payload: json });
+      const response = await axios.post("/api/v1/signIn", {...data});
+      dispatch({ type: AUTH_USER, payload: response.data });
       dispatch(hideLoader());
     } catch (e) {
       console.error(e);

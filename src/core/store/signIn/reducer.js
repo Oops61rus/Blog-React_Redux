@@ -2,13 +2,20 @@ import AUTH_USER from "./action";
 
 const initialState = {
   email: "",
-  password: "",
+  name: "",
+  id: "",
 };
 
 export const signInReducer = (state = initialState, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+  switch (type) {
     case AUTH_USER:
-      return { ...state, email: state.email, password: state.password };
+      return {
+        ...state,
+        email: payload.email,
+        name: payload.name,
+        id: payload.id,
+      };
     default:
       return state;
   }
