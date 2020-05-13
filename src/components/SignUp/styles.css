@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 20%;
+  margin: 0 auto;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.name,
+.email,
+.password {
+  width: 100%;
+  margin: 5px auto;
+}
+
+.sign__up__btn {
+  color: white;
+  background-color: firebrick;
+  margin: 5px auto;
+  border: none;
+  width: 100%;
+}
+
+.errors {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: firebrick;
+  margin: 5px;
+  width: 100%;
+}
+
+.errors span {
+  background-color: firebrick;
+  text-align: center;
+  width: 100%;
+  margin: 5px;
+}
