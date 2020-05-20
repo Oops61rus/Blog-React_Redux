@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 #root {
@@ -9,17 +9,17 @@
 }
 
 .signin__block {
-  width: 20%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 20%;
 }
 
-.signin__form {
+.signIn__form {
   width: 100%;
 }
 
-.email, 
+.email,
 .password {
   width: 100%;
   margin: 5px auto;
@@ -39,6 +39,12 @@
   width: 100%;
 }
 
-.signUp {
+.signUp_link {
   margin: 16px 2px;
+}
+
+.error {
+  text-align: center;
+  color: red;
+  width: 100%;
 }

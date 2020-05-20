@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+#root,
+main {
+  width: 100%;
+}
+
+.main__header {
+  display: flex;
+  justify-content: center;
+}
+
+.left__panel {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  position: fixed;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background-color: green;
+  color: white;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__name {
+  font-weight: 900;
+  font-size: 25px;
+  text-align: center;
+  margin: 20px auto 30px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.friends__posts,
+.my__posts,
+.add__post,
+.logout {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.logout {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.main__block {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 20%;
+  margin: auto;
+}
+
+.search__block {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.userlist__block {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.single-user {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.searched-user {
+  font-weight: 900;
+  color: gray;
+}

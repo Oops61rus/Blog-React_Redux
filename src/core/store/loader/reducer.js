@@ -1,15 +1,15 @@
 import { SHOW_LOADER, HIDE_LOADER } from './action'
 
 const initialState = {
-  loading: false,
+  isLoading: false,
 };
 
 export const loader = (state = initialState, action) => {
   switch (action.type) {
     case SHOW_LOADER:
-      return { ...state, loading: true };
+      return { ...state, isLoading: true };
     case HIDE_LOADER:
-      return { ...state, loading: false };
+      return { ...state, isLoading: false };
     default:
       return state;
   }

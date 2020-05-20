@@ -1,8 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
+
+import { WrongField } from "../../components/Messages";
+import { signIn } from "../../core/store/auth/actions";
+
 import "./styles.css";
-import { Loader } from "../Loader/index";
-import signIn from "../../core/store/signIn/action";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -12,14 +15,7 @@ class SignIn extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(
-    //   "Your email: " +
-    //     this.state.email +
-    //     " " +
-    //     "Your password: " +
-    //     this.state.password
-    // );
-    this.props.signIn({ ...this.state }); // здесь пробросить данные из инпутов?
+    this.props.signIn({ ...this.state });
   };
 
   handleChange = (fieldName) => {
@@ -29,12 +25,16 @@ class SignIn extends React.Component {
   };
 
   render = () => {
+    const { isAuthFailure, isAuthenticated } = this.props;
+    if (isAuthenticated) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="signin__block">
         <h1>SignIn, please</h1>
         <form className="signIn__form" onSubmit={this.handleSubmit}>
           <input
-            type="email"
+            type="text"
             className="email"
             placeholder="E-mail:"
             value={this.state.email}
@@ -52,13 +52,15 @@ class SignIn extends React.Component {
           </button>
           <div className="wrong"></div>
           <div className="not__registered">
-            <p>Not registered yet?</p>
-            <a href="sign-up.html" className="signUp">
-              Sign Up
-            </a>
+            <p>
+              Not registered yet?{" "}
+              <Link to="/signUp" className="signUp_link">
+                Sign up
+              </Link>
+            </p>
           </div>
         </form>
-        <Loader />
+        {isAuthFailure && <WrongField />}
       </div>
     );
   };
@@ -68,4 +70,9 @@ const mapDispatchToProps = {
   signIn,
 };
 
-export default connect(null, mapDispatchToProps)(SignIn);
+const mapStateToProps = (state) => ({
+  isAuthFailure: state.auth.isAuthFailure,
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
