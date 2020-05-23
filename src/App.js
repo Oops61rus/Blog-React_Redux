@@ -1,17 +1,21 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import SignIn from "./routes/SignIn";
 import SignUp from "./routes/SignUp";
 import Home from "./routes/Home";
-import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import store from "./core/store";
+
 import PrivateRoute from "./components/PrivateRoute";
+import Loader from "./components/Loader";
+import PopUp from "./components/Messages";
+
+import store from "./core/store";
+
 import "./App.css";
-import { Loader } from "./components/Loader";
 
 const App = () => (
   <Provider store={store}>
-    <Loader />
     <Router>
       <Switch>
         <Route path="/signIn" component={SignIn} exact />
@@ -19,6 +23,8 @@ const App = () => (
         <PrivateRoute path="/" component={Home} exact />
       </Switch>
     </Router>
+    <Loader />
+    {/* <PopUp>{text}</PopUp> */}
   </Provider>
 );
 

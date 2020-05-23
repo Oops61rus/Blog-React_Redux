@@ -1,18 +1,15 @@
 import {
   AUTH_USER_SUCCESS,
-  AUTH_USER_FAILURE,
-  REGISTRATION_SUCCESS,
-  REGISTRATION_FAILURE,
+  SHOW_POPUP,
+  HIDE_POPUP,
 } from "./actions";
 
 const initialState = {
   email: "",
   name: "",
   id: "",
-  isRegistrationSuccess: false,
-  isAlreadyRegistered: false,
-  isAuthFailure: false,
-  isAuthenticated: false
+  isAuthenticated: false,
+  showPopUp: false,
 };
 
 export const auth = (state = initialState, action) => {
@@ -24,14 +21,12 @@ export const auth = (state = initialState, action) => {
         email: payload.email,
         name: payload.name,
         id: payload.id,
-        isAuthenticated: true
+        isAuthenticated: true,
       };
-    case AUTH_USER_FAILURE:
-      return { ...state, isAuthFailure: true };
-    case REGISTRATION_SUCCESS:
-      return { ...state, isRegistrationSuccess: true };
-    case REGISTRATION_FAILURE:
-      return { ...state, isAlreadyRegistered: true };
+    case SHOW_POPUP:
+      return { ...state, showPopUp: true };
+    case HIDE_POPUP:
+      return { ...state, showPopUp: false };
     default:
       return state;
   }

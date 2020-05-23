@@ -11,12 +11,17 @@
 }
 
 .sign__up {
-  width: 20%;
+  width: 100%;
 }
 
 h1 {
   width: 100%;
   text-align: center;
+}
+
+.sign__up__block {
+  width: 20%;
+  margin: auto;
 }
 
 .name,
@@ -51,6 +56,7 @@ h1 {
 }
 
 .signIn_link {
+  width: 5%;
   margin: 5px auto;
   display: flex;
   justify-content: center;

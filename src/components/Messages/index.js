@@ -1,14 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import "./styles.css";
 
-export const RegistrationSuccess = () => (
-  <div className="registration__success">Registration successful</div>
-);
+const PopUp = (text, className, showPopUp) => {
+  return showPopUp ? <div className={className}>{text}</div> : <></>;
+};
 
-export const RegistrationFailure = () => (
-  <div className="registration__failure">Registration failure, user is already registered</div>
-);
+const mapStateToProps = (state) => ({
+  showPopUp: state.auth.showPopUp,
+});
 
-export const WrongField = () => (
-  <div className="error">Wrong email or password</div>
-)
+export default connect(mapStateToProps, null)(PopUp);

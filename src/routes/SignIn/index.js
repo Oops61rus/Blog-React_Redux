@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 
-import { WrongField } from "../../components/Messages";
+import PopUp from "../../components/Messages";
 import { signIn } from "../../core/store/auth/actions";
 
 import "./styles.css";
@@ -25,7 +25,8 @@ class SignIn extends React.Component {
   };
 
   render = () => {
-    const { isAuthFailure, isAuthenticated } = this.props;
+    const { showPopUp, isAuthenticated } = this.props;
+
     if (isAuthenticated) {
       return <Redirect to="/" />;
     }
@@ -60,7 +61,7 @@ class SignIn extends React.Component {
             </p>
           </div>
         </form>
-        {isAuthFailure && <WrongField />}
+        {showPopUp && <PopUp>Wrong email or password</PopUp>}
       </div>
     );
   };
@@ -71,8 +72,9 @@ const mapDispatchToProps = {
 };
 
 const mapStateToProps = (state) => ({
-  isAuthFailure: state.auth.isAuthFailure,
+  // isAuthFailure: state.auth.isAuthFailure,
   isAuthenticated: state.auth.isAuthenticated,
+  showPopUp: state.auth.showPopUp,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

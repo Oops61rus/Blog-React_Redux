@@ -1,9 +1,8 @@
 import React from "react";
-import "./styles.css";
 import { connect } from "react-redux";
+import "./styles.css";
 
-export const Loader = ({ isLoading }) => {
-  console.log(isLoading)
+const Loader = ({ isLoading }) => {
   return isLoading ? (
     <div className="lds-ring">
       <div></div>
