@@ -1,4 +1,4 @@
-import { SHOW_LOADER, HIDE_LOADER } from './action'
+import { SHOW_LOADER, HIDE_LOADER } from './actions'
 
 const initialState = {
   isLoading: false,

@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { signUp } from "../../core/store/auth/actions";
-import PopUp from "../../components/Messages";
-// import { RegistrationSuccess, RegistrationFailure } from "../../components/Messages";
+// import PopUp from "../../components/Messages";
 
 import "./styles.css";
 
@@ -79,7 +78,8 @@ class SignUp extends React.Component {
 
   render = () => {
     const { errors } = this.state;
-    const { isAuthenticated, showPopUp } = this.props;
+    const { isAuthenticated } = this.props;
+    // const { showPopUp } = this.props;
 
     return (
       <div className="sign__up">
@@ -127,15 +127,17 @@ class SignUp extends React.Component {
         <div className="errors">
           {errors.name ||
             errors.email ||
-            errors.password ||
-            (showPopUp && (
-              <PopUp className="error">
-                Registration failure! User is already registered!
-              </PopUp>
-            )) ||
-            (showPopUp && isAuthenticated && (
-              <PopUp className="success">Registration successful!</PopUp>
-            ))}
+            errors.password
+            //  ||
+            // (showPopUp && (
+            //   <PopUp className="error">
+            //     Registration failure! User is already registered!
+            //   </PopUp>
+            // )) ||
+            // (showPopUp && isAuthenticated && (
+            //   <PopUp className="success">Registration successful!</PopUp>
+            // ))
+          }
         </div>
       </div>
     );
@@ -148,7 +150,7 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
-  showPopUp: state.auth.showPopUp,
+  // showPopUp: state.auth.showPopUp,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

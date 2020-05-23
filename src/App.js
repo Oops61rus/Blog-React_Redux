@@ -8,7 +8,7 @@ import Home from "./routes/Home";
 
 import PrivateRoute from "./components/PrivateRoute";
 import Loader from "./components/Loader";
-import PopUp from "./components/Messages";
+import PopUp from "./components/PopUp";
 
 import store from "./core/store";
 
@@ -24,7 +24,7 @@ const App = () => (
       </Switch>
     </Router>
     <Loader />
-    {/* <PopUp>{text}</PopUp> */}
+    <PopUp />
   </Provider>
 );
 
