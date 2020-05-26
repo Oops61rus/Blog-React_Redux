@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import { signUp } from "../../core/store/auth/actions";
-// import PopUp from "../../components/Messages";
 
 import "./styles.css";
 
@@ -78,9 +77,10 @@ class SignUp extends React.Component {
 
   render = () => {
     const { errors } = this.state;
-    const { isAuthenticated } = this.props;
-    // const { showPopUp } = this.props;
-
+    const { isAuthenticated, history } = this.props;
+    if (isAuthenticated) {
+      setTimeout(() => history.push("/"), 3000);
+    }
     return (
       <div className="sign__up">
         <h1>Sign up</h1>
@@ -125,32 +125,19 @@ class SignUp extends React.Component {
           Back to sign in
         </Link>
         <div className="errors">
-          {errors.name ||
-            errors.email ||
-            errors.password
-            //  ||
-            // (showPopUp && (
-            //   <PopUp className="error">
-            //     Registration failure! User is already registered!
-            //   </PopUp>
-            // )) ||
-            // (showPopUp && isAuthenticated && (
-            //   <PopUp className="success">Registration successful!</PopUp>
-            // ))
-          }
+          {errors.name || errors.email || errors.password}
         </div>
       </div>
     );
   };
 }
 
-const mapDispatchToProps = {
-  signUp,
-};
+const mapDispatchToProps = (dispatch) => ({
+  signUp: (data) => dispatch(signUp(data)),
+});
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
-  // showPopUp: state.auth.showPopUp,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignUp));

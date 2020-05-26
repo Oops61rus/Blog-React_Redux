@@ -1,8 +1,9 @@
 import { showLoader, hideLoader } from "../loader/actions";
-import { showPopUp, hidePopUp } from "../popUp/actions"
+import { showPopUp, hidePopUp } from "../popUp/actions";
 import apiClient from "../../../utils/axios";
 
 export const AUTH_USER_SUCCESS = "AUTH_USER_SUCCESS";
+export const LOGOUT = "LOGOUT";
 
 export function signIn(data) {
   return async (dispatch) => {
@@ -13,7 +14,7 @@ export function signIn(data) {
       dispatch(hideLoader());
       setTokens(response.data);
       dispatch(showPopUp("Logining", "success"));
-      setTimeout(() => dispatch(hidePopUp()), 3000);
+      setTimeout(() => dispatch(hidePopUp()), 1000);
     } catch (e) {
       console.error(e);
       dispatch(hideLoader());
@@ -31,7 +32,12 @@ export function signUp(data) {
       dispatch({ type: AUTH_USER_SUCCESS, payload: response.data });
       dispatch(hideLoader());
       setTokens(response.data);
-      dispatch(showPopUp("Registration successfuly!", "success"));
+      dispatch(
+        showPopUp(
+          "Registration successfuly! You`ll be redirected to Homepage",
+          "success"
+        )
+      );
       setTimeout(() => dispatch(hidePopUp()), 3000);
     } catch (e) {
       console.error(e);
@@ -47,4 +53,20 @@ export function signUp(data) {
 export function setTokens(data) {
   localStorage.setItem("access_token", data.access_token);
   localStorage.setItem("refresh_token", data.refresh_token);
+}
+
+export function logOut() {
+  return (dispatch) => {
+    deleteTokens();
+    dispatch({
+      type: LOGOUT,
+    });
+    dispatch(showPopUp("Logining", "success"));
+    setTimeout(() => dispatch(hidePopUp()), 1000);
+  };
+}
+
+export function deleteTokens() {
+  localStorage.removeItem("access_token");
+  localStorage.removeItem("refresh_token");
 }

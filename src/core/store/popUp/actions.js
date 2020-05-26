@@ -1,11 +1,11 @@
 export const SHOW_POPUP = "SHOW_POPUP";
 export const HIDE_POPUP = "HIDE_POPUP";
 
-export function showPopUp(text, className) {
+export function showPopUp(text, popupType) {
   return {
     type: SHOW_POPUP,
     text,
-    className,
+    popupType,
   };
 }
 

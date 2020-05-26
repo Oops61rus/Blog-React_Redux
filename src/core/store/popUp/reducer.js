@@ -3,18 +3,18 @@ import { SHOW_POPUP, HIDE_POPUP } from "./actions";
 const initialState = {
   showPopUp: false,
   text: "",
-  className: "",
+  popupType: ""
 };
 
 export const popUp = (state = initialState, action) => {
-  const { type, text, className } = action;
+  const { popupType, text, type } = action;
   switch (type) {
     case SHOW_POPUP:
       return {
         ...state,
         showPopUp: true,
-        text: text,
-        className: className,
+        text,
+        popupType
       };
     case HIDE_POPUP:
       return { ...state, showPopUp: false };

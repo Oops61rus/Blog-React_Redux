@@ -1,4 +1,4 @@
-import { AUTH_USER_SUCCESS } from "./actions";
+import { AUTH_USER_SUCCESS, LOGOUT } from "./actions";
 
 const initialState = {
   email: "",
@@ -17,6 +17,11 @@ export const auth = (state = initialState, action) => {
         name: payload.name,
         id: payload.id,
         isAuthenticated: true,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        isAuthenticated: false,
       };
     default:
       return state;
