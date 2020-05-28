@@ -15,7 +15,8 @@ class AddPost extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addPost({ ...this.state });
+    const { profileEmail, profileId, profileName } = this.props;
+    this.props.addPost({ ...this.state, profileEmail, profileId, profileName });
   };
 
   handleChange = (fieldName) => {
@@ -61,8 +62,14 @@ function getDateTime() {
   return `Date: ${date} Time: ${time}`;
 }
 
+const stateToProps = (state) => ({
+  profileId: state.auth.id,
+  profileName: state.auth.name,
+  profileEmail: state.auth.email,
+});
+
 const dispatchToProps = (dispatch) => ({
   addPost: (data) => dispatch(addPost(data)),
 });
 
-export default connect(null, dispatchToProps)(AddPost);
+export default connect(stateToProps, dispatchToProps)(AddPost);

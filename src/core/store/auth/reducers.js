@@ -21,7 +21,7 @@ export const auth = (state = initialState, action) => {
     case LOGOUT:
       return {
         ...state,
-        isAuthenticated: false,
+        ...initialState
       };
     default:
       return state;

@@ -11,6 +11,9 @@ import Loader from "./components/Loader";
 import PopUp from "./components/PopUp";
 
 import store from "./core/store";
+// import instance from "./utils/axios";
+
+// import { logOut } from "./core/store/auth/actions";
 
 import "./App.css";
 
@@ -27,5 +30,18 @@ const App = () => (
     <PopUp />
   </Provider>
 );
+
+// const { dispatch } = store;
+
+// instance.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     if (error.response.status === 401) {
+//       dispatch(logOut());
+//     } else {
+//       return Promise.reject(error);
+//     }
+//   }
+// );
 
 export default App;

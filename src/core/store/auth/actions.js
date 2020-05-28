@@ -61,8 +61,6 @@ export function logOut() {
     dispatch({
       type: LOGOUT,
     });
-    dispatch(showPopUp("Logining", "success"));
-    setTimeout(() => dispatch(hidePopUp()), 1000);
   };
 }
 

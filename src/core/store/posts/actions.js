@@ -7,7 +7,6 @@ export const ADD_POST = "ADD_POST";
 export function addPost(data) {
   return async (dispatch) => {
     try {
-      console.log(data)
       dispatch(showLoader());
       await apiClient.post("/posts", data);
       dispatch({ type: ADD_POST });
