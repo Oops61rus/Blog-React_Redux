@@ -11,7 +11,7 @@ import Loader from "./components/Loader";
 import PopUp from "./components/PopUp";
 
 import store from "./core/store";
-// import instance from "./utils/axios";
+// import instance from "./utils/apiClient";
 
 // import { logOut } from "./core/store/auth/actions";
 

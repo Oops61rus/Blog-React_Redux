@@ -6,13 +6,27 @@ const instance = axios.create({
   baseURL: "http://localhost:4000/api/v1",
 });
 
-instance.interceptors.request.use((request) => {
-  if (request.method === "post") {
-    // request.headers.Authorization = `Bearer ${token}`;
-    request.headers.Authorization = localStorage.getItem("refresh_token");
-    return request;
+const CancelToken = axios.CancelToken;
+let cancel;
+
+instance.interceptors.request.use(
+  (config) => {
+    if (cancel) {
+      cancel(); // cancel request
+    }
+
+    config.cancelToken = new CancelToken(function executor(c) {
+      cancel = c;
+    });
+
+    config.headers.authorization = localStorage.getItem("refresh_token");
+
+    return config;
+  },
+  function (error) {
+    return Promise.reject(error);
   }
-});
+);
 
 // const { dispatch } = store;
 

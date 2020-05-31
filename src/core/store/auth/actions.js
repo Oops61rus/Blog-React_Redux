@@ -1,6 +1,6 @@
 import { showLoader, hideLoader } from "../loader/actions";
 import { showPopUp, hidePopUp } from "../popUp/actions";
-import apiClient from "../../../utils/axios";
+import apiClient from "../../../utils/apiClient";
 
 export const AUTH_USER_SUCCESS = "AUTH_USER_SUCCESS";
 export const LOGOUT = "LOGOUT";

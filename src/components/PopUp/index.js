@@ -5,7 +5,8 @@ import "./styles.css";
 export const popupType = {
   error: "error",
   success: "success",
-}
+  info: "info",
+};
 
 const PopUp = ({ showPopUp, text, popupType }) => {
   return showPopUp && <div className={`popup-${popupType}`}>{text}</div>;

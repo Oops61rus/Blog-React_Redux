@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { Switch, Route } from "react-router";
 
 import "./styles.css";
-import SearchUserBlock from "./components/SearchUser/SearchBlock";
-import Sidebar from "./components/Sidebar/Sidebar";
-import AddPost from "./components/AddPost/AddPost";
-import AllPosts from "./components/AllPosts/AllPosts";
-import MyPosts from "./components/MyPosts/MyPosts";
+import SearchUserBlock from "./components/SearchUser";
+import Sidebar from "./components/Sidebar";
+import AddPost from "./components/AddPost";
+import AllPosts from "./components/AllPosts";
+import MyPosts from "./components/MyPosts";
 
 class Home extends React.Component {
   render = () => {

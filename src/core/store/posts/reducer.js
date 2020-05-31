@@ -1,9 +1,18 @@
-import ADD_POST from "./actions";
+import { ADD_POST, LOAD_POSTS_SUCCESS, LOAD_POSTS_ERROR } from "./actions";
 
-export const posts = (state, action) => {
-  switch (action.type) {
+const initialState = {
+  list: [],
+};
+
+export const posts = (state = initialState, action) => {
+  const { payload, type } = action;
+  switch (type) {
     case ADD_POST:
-      return state;
+      return { ...state };
+    case LOAD_POSTS_SUCCESS:
+      return { ...state, list: payload };
+    case LOAD_POSTS_ERROR:
+      return { ...state };
     default:
       return state;
   }
