@@ -31,7 +31,7 @@ class SignIn extends React.Component {
     }
     return (
       <div className="signin__block">
-        <h1>SignIn, please</h1>
+        <h1>Sign In</h1>
         <form className="signIn__form" onSubmit={this.handleSubmit}>
           <input
             type="text"

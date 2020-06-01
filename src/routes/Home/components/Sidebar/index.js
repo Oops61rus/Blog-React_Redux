@@ -10,7 +10,7 @@ const Sidebar = ({ profileName, logOut }) => {
   return (
     <div className="left__panel">
       <div className="actions">
-        <span className="profile__name">{profileName}</span>
+        <Link to="/" className="profile__name">{profileName}</Link>
         <div className="posts">
           <Link to="/all-posts" className="all__posts">
             All posts

@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import { addPost } from "../../../../core/store/posts/actions";
 
+import "./styles.css";
+
 class AddPost extends React.Component {
   constructor(props) {
     super(props);
@@ -14,9 +16,15 @@ class AddPost extends React.Component {
   }
 
   handleSubmit = (e) => {
+    const { title, text } = this.state;
     e.preventDefault();
+    if (!title || !text) return;
     const { profileEmail, profileId, profileName } = this.props;
     this.props.addPost({ ...this.state, profileEmail, profileId, profileName });
+    this.setState((state) => ({
+      title: "",
+      text: "",
+    }));
   };
 
   handleChange = (fieldName) => {

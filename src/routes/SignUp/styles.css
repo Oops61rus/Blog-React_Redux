@@ -29,6 +29,8 @@ h1 {
 .password {
   width: 100%;
   margin: 5px auto;
+  border-radius: 3px;
+  border: 1px solid darkgray;
 }
 
 .sign__up__btn {
@@ -37,6 +39,7 @@ h1 {
   margin: 5px auto;
   border: none;
   width: 100%;
+  border-radius: 3px;
 }
 
 .errors {

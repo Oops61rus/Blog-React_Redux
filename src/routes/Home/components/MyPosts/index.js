@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { loadPosts } from "../../../../core/store/posts/actions";
 import PostsList from "../PostsList";
 
+import "./styles.css";
+
 class MyPosts extends React.Component {
   componentDidMount() {
     const { profileId, loadPosts } = this.props;
