@@ -1,0 +1,16 @@
+.single__user {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 10px;
+}
+
+.user__name {
+  font-weight: 900;
+  color: gray;
+}
+
+.img__heart {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,13 @@
+.main__block {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 20%;
+  margin: auto;
+}
+
+.search__block {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

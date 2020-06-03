@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Switch, Route } from "react-router";
 
 import "./styles.css";
-import SearchUserBlock from "./components/SearchUser";
+import SearchUserBlock from "./components/SearchUserBlock";
 import Sidebar from "./components/Sidebar";
 import AddPost from "./components/AddPost";
 import AllPosts from "./components/AllPosts";

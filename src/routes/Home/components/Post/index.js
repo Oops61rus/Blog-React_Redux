@@ -2,17 +2,14 @@ import React from "react";
 
 import "./styles.css";
 
-const Post = ({ items }) => {
+const Post = ({ id, title, date, text, name }) => {
   return (
-    items &&
-    items.map((post) => (
-      <div className="single__post" key={post.id}>
-        <div className="post__title">{post.title}</div>
-        <div className="post__date">{post.date}</div>
-        <div className="post__text">{post.text}</div>
-        <div className="post__author">{post.name}</div>
-      </div>
-    ))
+    <div className="single__post" key={id}>
+      <div className="post__title">{title}</div>
+      <div className="post__date">{date}</div>
+      <div className="post__text">{text}</div>
+      <div className="post__author">{name}</div>
+    </div>
   );
 };
 
