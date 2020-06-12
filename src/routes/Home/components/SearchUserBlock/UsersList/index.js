@@ -8,7 +8,7 @@ const UsersList = ({ items }) => {
   return (
     <div className="userlist__block">
       {items.length > 0 ? (
-        items.map((user) => <User id={user.id} name={user.name} />)
+        items.map((user) => <User id={user.id} key={user.id} name={user.name} following={user.following} />)
       ) : (
         <div className="error">Users not found!</div>
       )}

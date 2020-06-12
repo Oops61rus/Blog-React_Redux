@@ -46,3 +46,28 @@ export function loadPosts(id) {
       });
   };
 }
+
+export function loadFriendsPosts(id) {
+  return (dispatch) => {
+    dispatch(showLoader());
+    apiClient
+      .get(`/posts/friends`, {
+        params: {
+          id: id,
+        },
+      })
+      .then((res) => {
+        dispatch({ type: LOAD_POSTS_SUCCESS, payload: res.data });
+        dispatch(hideLoader());
+        dispatch(showPopUp("Loading posts...", "info"));
+        setTimeout(() => dispatch(hidePopUp()), 1000);
+      })
+      .catch((err) => {
+        console.error(err);
+        dispatch({ type: LOAD_POSTS_ERROR });
+        dispatch(hideLoader());
+        dispatch(showPopUp("Failed! Posts not loaded", "error"));
+        setTimeout(() => dispatch(hidePopUp()), 3000);
+      });
+  };
+}

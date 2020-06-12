@@ -10,7 +10,7 @@ const PostsList = ({ items }) => {
       {items.length > 0 ? (
         items.map((post) => (
           <Post
-            id={post.id}
+            key={post.id}
             title={post.title}
             text={post.text}
             date={post.date}

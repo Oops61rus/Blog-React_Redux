@@ -16,7 +16,11 @@ class SearchUserBlock extends React.Component {
   }
 
   handleChange = (e) => {
+    const { username } = this.state;
     this.setState({ username: e.target.value });
+    if (!username.length) {
+      return this.setState({ isShow: false });
+    }
   };
 
   handleSubmit = (e) => {
