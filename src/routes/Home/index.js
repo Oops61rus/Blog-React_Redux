@@ -16,7 +16,7 @@ class Home extends React.Component {
         <Sidebar />
         <Switch>
           <Route path="/" component={SearchUserBlock} exact />
-          <Route path="/add-post" component={AddPost} exact /> 
+          <Route path="/add-post" component={AddPost} exact />
           <Route path="/all-posts" component={AllPosts} exact />
           <Route path="/my-posts" component={MyPosts} exact />
         </Switch>

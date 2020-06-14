@@ -79,7 +79,7 @@ class SignUp extends React.Component {
     const { errors } = this.state;
     const { isAuthenticated, history } = this.props;
     if (isAuthenticated) {
-      setTimeout(() => history.push("/"), 3000);
+      history.push("/");
     }
     return (
       <div className="sign__up">
