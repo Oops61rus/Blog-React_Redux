@@ -13,6 +13,7 @@ class MyPosts extends React.Component {
   }
 
   render() {
+    console.log(this.props.posts)
     return (
       <div className="main__block">
         <h1>My posts</h1>

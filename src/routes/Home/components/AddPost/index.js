@@ -11,7 +11,7 @@ class AddPost extends React.Component {
     this.state = {
       title: "",
       text: "",
-      date: "",
+      // date: "",
     };
   }
 
@@ -30,7 +30,7 @@ class AddPost extends React.Component {
   handleChange = (fieldName) => {
     return (e) => {
       this.setState({ [fieldName]: e.target.value });
-      this.setState({ date: getDateTime() });
+      // this.setState({ date: getDateTime() });
     };
   };
 
@@ -61,14 +61,14 @@ class AddPost extends React.Component {
   }
 }
 
-function getDateTime() {
-  const today = new Date();
-  const date = `${today.getFullYear()}-${
-    today.getMonth() + 1
-  }-${today.getDate()}`;
-  const time = `${today.getHours()}:${today.getMinutes()}`;
-  return `Date: ${date} Time: ${time}`;
-}
+// function getDateTime() {
+//   const today = new Date();
+//   const date = `${today.getFullYear()}-${
+//     today.getMonth() + 1
+//   }-${today.getDate()}`;
+//   const time = `${today.getHours()}:${today.getMinutes()}`;
+//   return `Date: ${date} Time: ${time}`;
+// }
 
 const stateToProps = (state) => ({
   profileId: state.auth.id,
