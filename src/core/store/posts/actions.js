@@ -1,4 +1,4 @@
-import apiClient from "../../../utils/apiClient";
+import apiClient from "utils/apiClient";
 import { showLoader, hideLoader } from "../loader/actions";
 import { showPopUp, hidePopUp } from "../popUp/actions";
 

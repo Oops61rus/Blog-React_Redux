@@ -1,6 +1,6 @@
 import { showLoader, hideLoader } from "../loader/actions";
 import { showPopUp, hidePopUp } from "../popUp/actions";
-import apiClient from "../../../utils/apiClient";
+import apiClient from "utils/apiClient";
 
 export const AUTH_USER_SUCCESS = "AUTH_USER_SUCCESS";
 export const LOGOUT = "LOGOUT";
@@ -14,6 +14,7 @@ export function signIn(data) {
         dispatch({ type: AUTH_USER_SUCCESS, payload: response.data });
         dispatch(hideLoader());
         setTokens(response.data);
+        localStorage.setItem("profileName", response.data.name);
         dispatch(showPopUp("Logining", "success"));
         setTimeout(() => dispatch(hidePopUp()), 1000);
       })
@@ -35,6 +36,8 @@ export function signUp(data) {
         dispatch({ type: AUTH_USER_SUCCESS, payload: response.data });
         dispatch(hideLoader());
         setTokens(response.data);
+        console.log(response.data)
+        localStorage.setItem("profileName", response.data.name);
         dispatch(
           showPopUp(
             "Registration successfuly! You`ll be redirected to Homepage",
@@ -63,13 +66,8 @@ export function setTokens(data) {
 }
 
 export function logOut() {
-  return (dispatch) => {
-    deleteTokens();
-    dispatch({
-      type: LOGOUT,
-    });
-    window.location.assign(window.location.origin);
-  };
+  deleteTokens();
+  window.location.replace(window.location.origin);
 }
 
 export function deleteTokens() {

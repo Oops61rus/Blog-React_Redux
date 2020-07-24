@@ -4,7 +4,7 @@ const initialState = {
   email: "",
   name: "",
   id: "",
-  isAuthenticated: false,
+  isAuthenticated: Boolean(localStorage.getItem('access_token')),
 };
 
 export const auth = (state = initialState, action) => {

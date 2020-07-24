@@ -10,7 +10,9 @@ const Sidebar = ({ profileName, logOut }) => {
   return (
     <div className="left__panel">
       <div className="actions">
-        <Link to="/" className="profile__name">{profileName}</Link>
+        <Link to="/" className="profile__name">
+          {localStorage.getItem("profileName")}
+        </Link>
         <div className="posts">
           <Link to="/all-posts" className="all__posts">
             All posts
@@ -34,8 +36,4 @@ const mapDispatchToProps = (dispatch) => ({
   logOut: () => dispatch(logOut()),
 });
 
-const mapStateToProps = (state) => ({
-  profileName: state.auth.name,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(null, mapDispatchToProps)(Sidebar);
