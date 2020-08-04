@@ -15,6 +15,7 @@ export function signIn(data) {
         dispatch(hideLoader());
         setTokens(response.data);
         localStorage.setItem("profileName", response.data.name);
+        localStorage.setItem("profileId", response.data.id);
         dispatch(showPopUp("Logining", "success"));
         setTimeout(() => dispatch(hidePopUp()), 1000);
       })
@@ -38,6 +39,7 @@ export function signUp(data) {
         setTokens(response.data);
         console.log(response.data)
         localStorage.setItem("profileName", response.data.name);
+        localStorage.setItem("profileId", response.data.id);
         dispatch(
           showPopUp(
             "Registration successfuly! You`ll be redirected to Homepage",
@@ -66,11 +68,13 @@ export function setTokens(data) {
 }
 
 export function logOut() {
-  deleteTokens();
+  clearStorage();
   window.location.replace(window.location.origin);
 }
 
-export function deleteTokens() {
+export function clearStorage() {
   localStorage.removeItem("access_token");
   localStorage.removeItem("refresh_token");
+  localStorage.removeItem("profileName");
+  localStorage.removeItem("profileId");
 }

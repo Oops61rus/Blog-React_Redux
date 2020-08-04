@@ -10,6 +10,7 @@ class MyPosts extends React.Component {
   componentDidMount() {
     const { profileId, loadPosts } = this.props;
     loadPosts(profileId);
+    loadPosts(localStorage.getItem("profileId"));
   }
 
   render() {
