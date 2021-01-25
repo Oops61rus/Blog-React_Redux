@@ -1,3 +1,8 @@
+# Blog (Frontend part)
+
+This application is a frontend part of the application "Blog".
+Backend part you can find at the [link](https://github.com/Oops61rus/Blog-API_nodeJS)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
